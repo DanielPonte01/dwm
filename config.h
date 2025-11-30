@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* Constants */
-#define TERMINAL "alacritty"
-#define TERMCLASS "Alacritty"
+#define TERMINAL "st"
+#define TERMCLASS "St"
 #define BROWSER "firefox"
 #define FILEMANAGER "thunar"
 
@@ -175,9 +175,9 @@ static const Key keys[] = {
        // { MODKEY,			XK_y,          setlayout,              {.v = &layouts[2]} }, /* spiral */
        // { MODKEY|ShiftMask,		XK_y,          setlayout,              {.v = &layouts[3]} }, /* dwindle */
        // { MODKEY,			XK_u,          setlayout,              {.v = &layouts[4]} }, /* deck */
-       // { MODKEY|ShiftMask,		XK_u,          setlayout,              {.v = &layouts[5]} }, /* monocle */
-       // { MODKEY,			XK_i,          setlayout,              {.v = &layouts[6]} }, /* centeredmaster */
-       // { MODKEY|ShiftMask,		XK_i,          setlayout,              {.v = &layouts[7]} }, /* centeredfloatingmaster */
+        //{ MODKEY,		XK_u,          setlayout,              {.v = &layouts[5]} }, /* monocle */
+        { MODKEY,			XK_i,          setlayout,              {.v = &layouts[6]} }, /* centeredmaster */
+        { MODKEY|ShiftMask,		XK_i,          setlayout,              {.v = &layouts[7]} }, /* centeredfloatingmaster */
        // { MODKEY,			XK_o,          incnmaster,             {.i = +1 } },
        // { MODKEY|ShiftMask,		XK_o,          incnmaster,             {.i = -1 } },
        //{ MODKEY|ShiftMask,		XK_f,          setlayout,              {.v = &layouts[8]} },
@@ -217,9 +217,9 @@ static const Key keys[] = {
        // { MODKEY,			XK_c,          spawn,                  {.v = (const char*[]){ TERMINAL, "-e", "profanity", NULL } } },
         /* { MODKEY|ShiftMask,		XK_c,          spawn,                  SHCMD("") }, */
         /* V is automatically bound above in STACKKEYS */
-        { MODKEY,			XK_b,          togglebar,              {0} },
-        /* { MODKEY|ShiftMask,		XK_b,          spawn,                  SHCMD("") }, */
-      // { MODKEY,			XK_n,          spawn,                  {.v = (const char*[]){ TERMINAL, "-e", "nvim", "-c", "VimwikiIndex", NULL } } },
+        { MODKEY,		XK_b,          spawn,                  SHCMD("boomer") },
+        { MODKEY|ShiftMask,			XK_b,          togglebar,              {0} },
+        { MODKEY,			XK_n,          spawn,                  {.v = (const char*[]){ "notes", NULL } } },
         { MODKEY|ShiftMask,		XK_n,          spawn,                  SHCMD(TERMINAL " -e newsboat ; pkill -RTMIN+6 dwmblocks") },
         { MODKEY,			XK_m,          spawn,                  {.v = (const char*[]){ TERMINAL, "-e", "ncmpcpp", NULL } } },
         { MODKEY|ShiftMask,		XK_m,          spawn,                  SHCMD("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; kill -44 $(pidof dwmblocks)") },
@@ -287,8 +287,8 @@ static const Key keys[] = {
         { 0, XF86XK_TouchpadToggle,                    spawn,                  SHCMD("(synclient | grep 'TouchpadOff.*1' && synclient TouchpadOff=0) || synclient TouchpadOff=1") },
         { 0, XF86XK_TouchpadOff,                       spawn,                  {.v = (const char*[]){ "synclient", "TouchpadOff=1", NULL } } },
         { 0, XF86XK_TouchpadOn,                        spawn,                  {.v = (const char*[]){ "synclient", "TouchpadOff=0", NULL } } },
-        { 0, XF86XK_MonBrightnessUp,                   spawn,                  {.v = (const char*[]){ "xbacklight", "-inc", "15", NULL } } },
-        { 0, XF86XK_MonBrightnessDown,                 spawn,                  {.v = (const char*[]){ "xbacklight", "-dec", "15", NULL } } },
+        { 0, XF86XK_MonBrightnessUp,                   spawn,                  {.v = (const char*[]){ "brightnessctl s +10%", NULL } } },
+        { 0, XF86XK_MonBrightnessDown,                 spawn,                  {.v = (const char*[]){ "brightnessctl s 10%-", NULL } } },
 
         /* { MODKEY|Mod4Mask,           XK_h,          incrgaps,               {.i = +1 } }, */
         /* { MODKEY|Mod4Mask,           XK_l,          incrgaps,               {.i = -1 } }, */
